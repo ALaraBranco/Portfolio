@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Gastronomy Snippet">
+
+  <title>Gastronomy</title>
+
+  <!-- Include the Kendo UI CSS -->
+
+  <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.common.min.css" rel="stylesheet" />
+
+  <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <header>
+
+    <nav>
+
+      <a href="index.html">Home</a>
+
+      <a href="portfolio.html">Portfolio</a>
+
+      <a href="privacy-policy.html">Privacy Policy</a>
+
+      <a href="contact.html">Contact</a>
+
+      <a href="gastronomy.html">Gastronomy</a>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section>
+
+      <h1>Gastronomy</h1>
+
+      <div id="chart"></div>
+
+    </section>
+
+  </main>
+
+  <footer>
+
+    <nav>
+
+      <a href="index.html">Home</a>
+
+      <a href="portfolio.html">Portfolio</a>
+
+      <a href="privacy-policy.html">Privacy Policy</a>
+
+      <a href="contact.html">Contact</a>
+
+      <a href="gastronomy.html">Gastronomy</a>
+
+    </nav>
+
+  </footer>
+
+  <!-- Include the Kendo UI JavaScript -->
+
+  <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
+
+  <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+
+  <script>
+
+    $(document).ready(function () {
+
+      // Data for the chart
+
+      var chartData = [
+
+        { dish: "Pastel de Nata", rating: 9.5, region: "Lisbon", year: 1837 },
+
+        { dish: "Bacalhau à Brás", rating: 9.3, region: "Lisbon", year: 1850 },
+
+        { dish: "Francesinha", rating: 9.2, region: "Porto", year: 1953 },
+
+        { dish: "Arroz de Marisco", rating: 9.1, region: "Algarve", year: 1920 },
+
+        { dish: "Cozido à Portuguesa", rating: 9.0, region: "Various", year: "16th century" },
+
+        // Add more dishes...
+
+      ];
+
+      // Sort the chart data by rating in descending order
+
+      chartData.sort(function (a, b) {
+
+        return b.rating - a.rating;
+
+      });
+
+      // Take the top 10 dishes
+
+      var top10Data = chartData.slice(0, 10);
+
+      // Create the chart
+
+      $("#chart").kendoChart({
+
+                series: [{
+          data: top10Data.map(function (dataItem) {
+            return dataItem.rating;
+          })
+        }],
+        categoryAxis: {
+          field: "dish",
+          labels: {
+            rotation: -45
+          }
+        },
+        valueAxis: {
+          labels: {
+            format: "{0}"
+          }
+        },
+        tooltip: {
+          visible: true,
+          template: "#= dataItem.dish #: #= value #"
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+       
+
