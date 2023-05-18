@@ -11,6 +11,10 @@
   <!-- Kendo UI Stylesheet -->
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.1.330/styles/kendo.common.min.css" />
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.1.330/styles/kendo.default.min.css" />
+  
+  <!-- Kendo UI JavaScript -->
+  <script src="https://kendo.cdn.telerik.com/2021.1.330/js/jquery.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2021.1.330/js/kendo.all.min.js"></script>
 
   <!-- Custom Styles -->
   <style>
@@ -115,6 +119,85 @@
         <strong>Janela Digital SA</strong> | Web Designer, Front-End Developer, and Team Leader | 2003 - 2016
       </li>
     </ul>
+    <h2>Skills Chart</h2>
+
+
+  <div id="chart"></div>
+
+  <script>
+    $(document).ready(function() {
+      var data = [
+        { language: "JavaScript", level: 5, version: "ECMAScript 2018" },
+        { language: "SQL", level: 3, version: "SQL Server 2012/2014" },
+        { language: "C#", level: 4, version: "6/7" },
+        { language: "HTML", level: 5, version: "5" },
+        { language: "CSS", level: 5, version: "CSS3" },
+        { language: "LESS", level: 5, version: "3.11.1" },
+        { language: "SASS", level: 1, version: "3.7.2" },
+        { language: "RAZOR", level: 4 },
+        { language: "JQuery", level: 5 },
+        { language: "PHP", level: 4, version: "7.2" },
+        { language: ".NET", level: 4, version: "4.7" },
+        { language: "ASP.NET MVC", level: 4, version: "5.2" },
+        { language: "Bootstrap", level: 4, version: "4.0" },
+        { language: "VUE.js", level: 1, version: "2.6.11" },
+        { language: "D3.js", level: 1, version: "5.16.0" },
+        { language: "Angular.js", level: 1, version: "8.0 / TypeScript 3.4" },
+        { language: "SQL Developer", level: 4 },
+        { language: "My SQL", level: 3 },
+        { language: "Oracle", level: 4 },
+        { language: "Visual Studio", level: 4, version: "2015/2019" },
+        { language: "JetBrains Rider", level: 4, version: "2019" },
+        { language: "Brackets", level: 4, version: "1.14.2" },
+        { language: "Visual Studio Code", level: 3, version: "2020" },
+        { language: "Animate CS", level: 3, version: "2017" },
+        { language: "Node.js", level: 4 },
+        { language: "Office 365", level: 3 }
+      ];
+
+      $("#chart").kendoChart({
+               title: {
+          text: "Skills Chart",
+          align: "center",
+          color: "#333"
+        },
+        legend: {
+          visible: false
+        },
+        seriesDefaults: {
+          type: "column"
+        },
+        series: [
+          {
+            name: "Skill Level",
+            data: data.map(function(item) {
+              return item.level;
+            }),
+            color: "#BE3455"
+          }
+        ],
+        categoryAxis: {
+          field: "language",
+          majorGridLines: {
+            visible: false
+          }
+        },
+        valueAxis: {
+          majorGridLines: {
+            visible: true
+          },
+          labels: {
+            format: "{0}"
+          }
+        },
+        tooltip: {
+          visible: true,
+          template: "#= dataItem.language #: #= dataItem.level #"
+        }
+      });
+    });
+  </script>
+
   </main>
   
     <footer>
