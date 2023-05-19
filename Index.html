@@ -88,6 +88,20 @@
       text-decoration: none;
       color: #ffffff;
     }
+    #contactForm{
+      padding-right: 100px;
+    }
+    .form-group{
+      font-size: 20px;
+      padding-top:20px;
+      padding-bottom: 10px;
+    }
+    .form-control{ border: .5px solid #ffffff; background-color: #fff;}
+    .form-control:focus{ background-color: transparent;}
+    .btn{ 
+      font-family: 'Roboto Slab', serif;
+      font-size: 20px;
+    }
     h2.section-title{
       color:#4e5754;
       font-family: 'Roboto Slab', serif;
@@ -371,8 +385,8 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 7%, rgba(232,207,134,0.93
         </li>
     </ul>
     </div>
-    <div class="container">
-      <h1>Contact Form</h1>
+    <div class="section">
+      <h2 class="section-title">Contact me </h2>
       <form id="contactForm" method="POST">
         <div class="form-group">
           <label for="nameFrom">Name</label>
@@ -390,7 +404,7 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 7%, rgba(232,207,134,0.93
           <label for="message">Message</label>
           <textarea class="form-control" id="message" name="message" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-secondary mt-2">Submit Contact</button>
       </form>
     </div>
   
