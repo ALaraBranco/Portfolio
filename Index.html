@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Homepage | Lara Branco">
+  <meta name="keywords" content="portfolio, web development, front-end, full stack, projects, javascript, code-snippets, C#, .NET, PHP, ">
+  <meta name="author" content="Your Name">
+  <title>Lara Branco | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:ital,wght@0,300;1,600&display=swap" rel="stylesheet">
+  <!-- Kendo UI Stylesheet -->
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.common.min.css" />
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default.min.css" />  
+  <!-- Kendo UI JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+  <!-- Custom Styles -->
+  <style>
+    /*
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    */
+    *{
+      box-sizing: border-box;
+    -webkit-box-sizing: border-box;}
+    body {
+      font-family: 'Roboto', helvetica, sans-serif;
+      color: #111;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5em;
+    }
+
+    header {
+      background-color: #313131;
+      padding: 60px 20px 0px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 30px;
+      padding-bottom: 20px;
+    }
+
+    main {
+      width: 100%;
+      margin: 40px auto;
+      padding: 0;
+    }
+    .section{
+      padding: 20px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background-color: #313131;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+      
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+    h2.section-title{
+      color:#4e5754;
+      font-family: 'Roboto Slab', serif;
+      font-size: 30px;
+    }
+    .job-dates{color: #F33052; font-weight: 600;}
+    .job-dates.current{ color: #1bdb9b!important;}
+    .job-dates,
+    .job-title{
+      font-weight: normal; font-size:16px; margin-bottom:0px;
+      display: inline-block; width: fit-content;  font-family: 'Roboto Slab', serif;}
+
+    .job{  transition: transform 0.3s ease-in-out; border-top:.5px solid #ccc; padding-top: 20px; padding-bottom: 20px; margin-bottom: 20px;}
+    /* Styling for the project list */
+    .projects-section{
+      height: auto;
+      overflow: auto;
+      width: 100%;
+      max-width: 100%;
+      margin: 0!important;
+      background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 7%, rgba(232,207,134,0.9332107843137255) 54%, rgba(243,48,82,1) 97%);
+    
+    }
+    .projects-container{
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .project-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .projects-container ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .project-item {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 20px;    
+            transition: transform 0.1s ease-in-out;
+        }
+        .project-item:hover{
+          border: .5px solid #fff;
+          background-color: #ffffff;
+        }
+        .project-item:hover,
+        .job:hover {
+            transform: scale(1.02);
+        }
+
+        .project-thumbnail {
+            width: 240px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .project-details {
+            flex: 1;
+        }
+
+        .project-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .project-date {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .project-technologies {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        /*Skills Set*/
+        #chart{padding:10px; background-color: none;}
+  </style>
+</head>
+<body>
+  <header>
+    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="90" viewBox="0 0 400 90">
+      <g transform="translate(20, 0)">
+          <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+             
+            <circle style="fill:#F33052;" cx="256" cy="256" r="200"/>
+              
+              <g>
+                  <path style="fill:#FFFFFF;" d="M213.12,319.776L99.872,270.544V243.28l113.248-49.008v32.112l-79.008,30.208l79.008,31.328V319.776z"/>
+                  <path style="fill:#FFFFFF;" d="M223.6,341.408l40.912-170.832h23.776l-41.36,170.832H223.6z"/>
+                  <path style="fill:#FFFFFF;" d="M298.768,319.904V288l79.104-31.104l-79.104-30.752V194.48l113.36,49.008v27.04L298.768,319.904z"/>
+              </g>
+          </svg>
+      </g>
+      <text x="80" y="32" font-family='Roboto Slab' font-size="28" fill="#FFFFFF">Lara Branco</text>
+  </svg>
+  
+  </header>
+
+  <main>
+    <div class="section">
+      <h2 class="section-title">About Me</h2>
+      <p>
+          With over 20 years of experience in web design and development, I am a seasoned professional in the field. I thrive on taking on new and exciting challenges. With a proven track record in developing innovative web solutions, I am eager to bring my expertise and dedication to the next project I join.
+      </p>
+  </div>
+  
+  <div class="section">
+      <h2 class="section-title">Professional Background</h2>
+      
+      <div class="job">
+          <h3 class="job-title">Full Stack Developer and Data Analyst at Capgemini</h3>
+          <p class="job-dates current">2020 - To date </p>
+          <ul class="job-description">
+              <li>Developed and maintained full stack applications.</li>
+              <li>Analyzed and processed data to derive valuable insights.</li>
+          </ul>
+      </div>
+      
+      <div class="job">
+          <p class="job-dates">2020</p>
+          <h3 class="job-title">Full Stack Developer at New Hotel</h3>
+          <ul class="job-description">
+              <li>Collaborated with a team to develop and launch new hotel website.</li>
+              <li>Implemented responsive design and optimized performance.</li>
+          </ul>
+      </div>
+      
+      <div class="job">
+          <p class="job-dates">2018 - 2019</p>
+          <h3 class="job-title">Front-End Developer at Dynamicweb NA</h3>
+          <ul class="job-description">
+              <li>Created engaging and user-friendly front-end interfaces.</li>
+              <li>Worked closely with back-end developers to integrate designs.</li>
+          </ul>
+      </div>
+      
+      <div class="job">
+          <p class="job-dates">2016 - 2017</p>
+          <h3 class="job-title">Front-End Developer at Curiosidade</h3>
+          <ul class="job-description">
+              <li>Implemented modern web technologies for interactive experiences.</li>
+              <li>Collaborated with designers to bring creative concepts to life.</li>
+          </ul>
+      </div>
+      
+      <div class="job">
+          <p class="job-dates">2003 - 2016</p>
+          <h3 class="job-title">Web Designer, Front-End Developer, and Team Leader at Janela Digital SA</h3>
+          <ul class="job-description">
+              <li>Led a team of developers and designers to deliver successful projects.</li>
+              <li>Designed and developed visually appealing and functional websites.</li>
+          </ul>
+      </div>
+  </div>
+  <div class="section projects-section">
+    <div class="projects-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="400" height="90" viewBox="0 0 400 90">
+        <g transform="translate(20, 0)">
+            <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+               
+              <circle style="fill:#ffffff;" cx="256" cy="256" r="200"/>
+                
+                <g>
+                    <path style="fill:#F33052;" d="M213.12,319.776L99.872,270.544V243.28l113.248-49.008v32.112l-79.008,30.208l79.008,31.328V319.776z"/>
+                    <path style="fill:#F33052;" d="M223.6,341.408l40.912-170.832h23.776l-41.36,170.832H223.6z"/>
+                    <path style="fill:#F33052;" d="M298.768,319.904V288l79.104-31.104l-79.104-30.752V194.48l113.36,49.008v27.04L298.768,319.904z"/>
+                </g>
+            </svg>
+        </g>
+        <text x="80" y="32" font-family='Roboto Slab' font-size="28" fill="#F33052">Projects</text>
+    </svg>
+    
+      <ul class="project-list">
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/new-hotel-thumbnail.jpg" alt="New Hotel Thumbnail">
+            <div class="project-details">
+                <div class="project-title">New Hotel</div>
+                <div class="project-date">January 2020</div>
+                <div class="project-description">
+                    Context: Project with emphasis in all domains of a web application, front-end and backend, and also database performance optimization. The main goal of the application was to deliver a platform for Hotels to manage Customer Relationship Management (CRM) and Business and Staff Teams management.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Platform Analysis, Front-end and Back-end Web Development (ASP.NET), Testing and publish, Razor, C#, LESS Css, Javascript, Jquery, Bootstrap, Oracle
+                </div>
+            </div>
+        </li>
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/dynamicweb-rapido-thumbnail.jpg" alt="Dynamicweb - Rapido Thumbnail">
+            <div class="project-details">
+                <div class="project-title">Dynamicweb - Rapido</div>
+                <div class="project-date">2018 - 2019</div>
+                <div class="project-description">
+                    Context: Project with emphasis in web development. The goal was to create dynamic content blocks for products display, checkout, and custom-content, to extend a system of templates for e-commerce.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Website and platform Analysis, Front-end and Back-end Web Development (ASP.NET), Razor, C#, LESS Css, Javascript, Handlebars, Dynamicweb 9, GIT, MCV .net
+                </div>
+            </div>
+        </li>
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/dynamicweb-kiesler-thumbnail.jpg" alt="Dynamicweb - Kiesler Thumbnail">
+            <div class="project-details">
+                <div class="project-title">Dynamicweb - Kiesler</div>
+                <div class="project-date">2019</div>
+                <div class="project-description">
+                    Context: Project with emphasis in web development. The goal was to develop an e-commerce platform for police force equipment.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Website and platform Analysis, Front-end and Back-end Web Development (ASP.NET), Testing and publish, Razor, C#, LESS Css, Javascript, Handlebars, Dynamicweb 9, GIT, MCV .net, Rest API
+                </div>
+            </div>
+        </li>
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/dynamicweb-component-hardware-thumbnail.jpg" alt="Dynamicweb - Component Hardware Thumbnail">
+            <div class="project-details">
+                <div class="project-title">Dynamicweb - Component Hardware</div>
+                <div class="project-date">2019</div>
+                <div class="project-description">
+                    Context: Project with emphasis in web development. The goal was to develop an e-commerce platform for Multi Equipment Retail Store.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Website and platform Analysis, Front-end and Back-end Web Development (ASP.NET), Testing and publish, Razor, C#, LESS Css, Javascript / Jquery, Handlebars, Dynamicweb 9, GIT, MCV .net
+                </div>
+            </div>
+        </li>
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/curiosidade-digital-interprev-thumbnail.jpg" alt="Curiosidade Digital - Interprev Thumbnail">
+            <div class="project-details">
+                <div class="project-title">Curiosidade Digital - Interprev</div>
+                <div class="project-date">2017</div>
+                <div class="project-description">
+                    Context: Project with emphasis in web development. The main goal of the project was to build the corporate website for the company of Hygiene and Work Security, connecting all company agencies and services.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Analysis and architecture planning, Front-end and Back-end Web Development (WORDPRESS), PHP, LESS Css, Javascript, SVG, AnimateCS
+                </div>
+            </div>
+        </li>
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/curiosidade-digital-buggy-power-thumbnail.jpg" alt="Curiosidade Digital - Buggy Power Thumbnail">
+            <div class="project-details">
+                <div class="project-title">Curiosidade Digital - Buggy Power</div>
+                <div class="project-date">2017</div>
+                <div class="project-description">
+                    Context: Project with emphasis in web development. The main goal of the project was to build the corporate website for the company of Ecological Food and Fuel Production. The focus was on the interactivity and integration of multiple graphic elements animations and content, in order to present a product that is very out of the box.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Analysis and architecture planning, Front-end and Back-end Web Development (WORDPRESS), PHP, LESS Css, Javascript, SVG, AnimateCS, HTML5
+                </div>
+            </div>
+        </li>
+        <li class="project-item">
+            <img class="project-thumbnail" src="path/to/janela-digital-ego-realestate-thumbnail.jpg" alt="Janela Digital - Ego RealEstate Thumbnail">
+            <div class="project-details">
+                <div class="project-title">Janela Digital - Ego RealEstate</div>
+                <div class="project-date">2016</div>
+                <div class="project-description">
+                    Context: Project with emphasis in web development. The main goal of the project was to build templates and custom websites fed by a RealEstate Software for properties management, sales, and renting.
+                </div>
+                <div class="project-technologies">
+                    Main Activities Technologies: Analysis and architecture planning, Front-end and Back-end Web Development, PHP, LESS Css, Javascript / Jquery, HTML5
+                </div>
+            </div>
+        </li>
+    </ul>
+    </div>
+    <div class="section">
+      <h2 class="section-title">Skills Set</h2>
+      <div id="chart"></div>
+    </div>
+     
+  </div>
+ 
+  
+  <script>
+    var data = [
+        { language: "JavaScript", level: 5, version: "ECMAScript 2018" },
+        { language: "JQuery", level: 5 },
+        { language: "PHP", level: 3, version: "7.2" },
+        { language: "SQL", level: 4.5, version: "SQL Server 2012/2014" },
+        { language: "C#", level: 4.5, version: "6/7" },
+        { language: "HTML", level: 4.5, version: "5" },
+        { language: "CSS", level: 5, version: "CSS3" },
+        { language: "LESS", level: 4.5, version: "3.11.1" },
+        { language: "RAZOR", level: 5 },
+        { language: ".NET", level: 4, version: "4.7" },
+        { language: "MVC", level: 4, version: "5.2" },
+        { language: "Bootstrap", level: 4, version: "5.0" },
+        { language: "VUE.js", level: 2, version: "2.6.11" },
+        { language: "D3.js", level: 1, version: "5.16.0" },
+        { language: "Angular.js", level: 1, version: "8.0 / TypeScript 3.4" },
+        { language: "SQL Developer", level: 4 },
+        { language: "Oracle", level: 4 },
+        { language: "Node.js", level: 4 },
+    ];
+
+    $(document).ready(function() {
+        $("#chart").kendoChart({
+            dataSource: {
+                data: data
+            },
+            chartArea: {
+              margin: { right: 90 },
+              background: "transparent"
+            },
+            series: [{
+              type: "bar",
+              field: "level",
+              categoryField: "language",
+              color: "#333",
+              tooltip: {
+                  visible: true,
+                  color: "#313131",
+                  background:"#03BB85",
+                  template: "#= category #: level #= value #"
+              }
+            }],
+            valueAxis: {
+                min: 0,
+                max: 5,
+                majorGridLines: {
+                        visible: false
+                }
+            },
+            categoryAxis: {
+                labels: {
+                    padding: { right: 10 },
+                      font: "16px Roboto, sans-serif"
+                },
+                majorGridLines: {
+                        visible: false
+                }
+            }
+        });
+    });
+</script>
+  </main>
+  
+  <!--nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="portuguese-culture.html">Portuguese Culture</a>
+    <a href="contact.html">Contact</a>
+  </nav-->
+  <footer class="text-center text-white">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <!-- Google / Email -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-mail"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <!-- Github -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="#!"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->  
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-dark" href="#">Lara Branco</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+</body>
+</html>
