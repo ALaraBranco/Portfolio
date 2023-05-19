@@ -371,7 +371,80 @@ background: linear-gradient(90deg, rgba(255,255,255,1) 7%, rgba(232,207,134,0.93
         </li>
     </ul>
     </div>
-   
+    <div class="container">
+      <h1>Contact Form</h1>
+      <form id="contactForm" method="POST">
+        <div class="form-group">
+          <label for="nameFrom">Name</label>
+          <input type="text" class="form-control" id="nameFrom" name="nameFrom" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea class="form-control" id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  
+    <script>
+      // JavaScript form validation
+      (function() {
+        'use strict';
+  
+        var forms = document.querySelectorAll('#contactForm');
+        Array.prototype.slice.call(forms).forEach(function(form) {
+          form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      })();
+    </script>
+  
+    <script>
+      // JavaScript form submission
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent form from submitting normally
+  
+        // Fetch form data
+        var formData = new FormData(this);
+  
+        // Add email subject to the form data
+        formData.append('subject', 'Contact from Portfolio');
+  
+        // Send the form data using Fetch API
+        fetch('https://formspree.io/f/xleogdaa', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json'
+          },
+          body: formData
+        })
+        .then(function(response) {
+          // Show success message and clear form
+          alert('Message sent successfully!');
+          document.getElementById('contactForm').reset();
+        })
+        .catch(function(error) {
+          // Show error message
+          alert('An error occurred while sending the message. Please try again later.');
+        });
+      });
+    </script>
      
   </div>
  
